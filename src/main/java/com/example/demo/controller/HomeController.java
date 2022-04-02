@@ -1,5 +1,4 @@
 package com.example.demo.controller;
-
 import com.example.demo.SummeryAPI.APICall;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,11 +16,6 @@ public class HomeController {
     APICall api;
 
     @GetMapping("/")
-    public String hello() {
-        return "hello";
-    }
-
-    @GetMapping("/home")
     public String homePage(Model model) {
         return "home";
     }
@@ -29,12 +23,13 @@ public class HomeController {
     @GetMapping("/message")
     public String message(Model model) {
         model.addAttribute("message", "This is a custom message");
+        System.out.println("test");
+        String s = "s";
         return "message";
     }
 
     @PostMapping("/summaryText")
     public String getStringApi(@RequestParam("text") String text, Model model) throws IOException, InterruptedException {
-
         String check = api.check(text);
         model.addAttribute("message1", text);
         model.addAttribute("message2", check);

@@ -1,168 +1,72 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Spring Demo Project</title>
-
+    <title>Bootstrap </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link th:href="@{/static/style.css}" rel="stylesheet"/>
 </head>
 <body>
+<nav class="navbar navbar-expand-sm navbar-light
+">
 
-<div class="nav">
-    <!--logo-->
-    <!--toggle button for mobile-->
-
-    <div class="nav-header">
-        <div class="nav-title">
+    <a class="navbar-brand" style="text-align:center;" href="#">
+        <!--<img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top"> -->
+        <h3><i class="fa fa-list-alt" aria-hidden="true"></i>
             Summary API
-        </div>
-    </div>
-    <div class="nav-links">
-        <ul>
-            <!--menu Item-->
-            <!--Social Icon-->
+        </h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-sticky-note" aria-hidden="true"></i> <span>Notes</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> <span
+                >Login</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-user-plus" aria-hidden="true"></i><span> Signup</span></a>
+            </li>
         </ul>
     </div>
-</div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <form>
+                <h4>Paste the Easy or pargraph</h4>
+                <div class="mb-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" rows="15"
+                              id="floatingTextarea"></textarea>
 
-<div class="textAreaColumn">
-    <div>
-        <form method="post" action="/summaryText">
-
-            <textarea placeholder="This is an awesome comment box" rows="20" name="text" id="comment_text" cols="40"
-                      class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list"
-                      aria-haspopup="true"th:text="${message1}"></textarea>
-            <br
-            >
-            <button style="font-size:24px"><i class="fa fa-arrow-right"></i></button>
-        </form>
-    </div>
-    <div>
-        <form action="/he">
-
-<textarea placeholder="This is an awesome comment box" rows="20" name="comment[text]" id="comment_text1" cols="40"
-          class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"
-          style="
-    margin-left: 114%;
-"th:text="${message2}"></textarea>
-
-        </form>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col bg-gradient">
+            <h4>Your Summary</h4>
+            <div class="mb-3">
+                <textarea class="form-control" placeholder="Leave a comment here" rows="15"></textarea>
+            </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>
-<style>
-
-  body {background: #F0F0F0;}
-button{
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 10px 30px;
-  text-decoration: none;
-  margin: 2px 2px;
-  cursor: pointer;
-  
-    margin-left: 450px;
-
-}
-
-h2 {margin-left: 55px;}
-.textAreaColumn{
-    width:100%;    
-}
-.textAreaColumn div{
-    float:left;
-    width:25%;
-    padding:10px;
-    box-sizing: border-box;
-}
-
-.textAreaColumn div span{
-    display:block;
-    text-align:center;
-}
-
-.textAreaColumn div textarea{
-    margin-top: 10px;
-  margin-left: 50px;
-  width: 500px;
-  height: 400px;
-  -moz-border-bottom-colors: none;
-  -moz-border-left-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-top-colors: none;
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
-  border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
-  border-image: none;
-  border-radius: 6px 6px 6px 6px;
-  border-style: none solid solid none;
-  border-width: medium 1px 1px medium;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
-  color: #555555;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 1em;
-  line-height: 1.4em;
-  padding: 5px 8px;
-  transition: background-color 0.2s ease 0s;
-}
-textarea {
-  margin-top: 10px;
-  margin-left: 50px;
-  width: 500px;
-  height: 100px;
-  -moz-border-bottom-colors: none;
-  -moz-border-left-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-top-colors: none;
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
-  border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
-  border-image: none;
-  border-radius: 6px 6px 6px 6px;
-  border-style: none solid solid none;
-  border-width: medium 1px 1px medium;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
-  color: #555555;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 1em;
-  line-height: 1.4em;
-  padding: 5px 8px;
-  transition: background-color 0.2s ease 0s;
-}
-
-
-textarea:focus {
-    background: none repeat scroll 0 0 #FFFFFF;
-    outline-width: 0;
-}
-  body {
-    margin: 0px;
-    font-family: 'segoe ui';
-  }
-  
-  .nav {
-    height: 50px;
-    width: 100%;
-    background-color: #1177ca;
-    position: relative;
-  }
-  
-  .nav > .nav-header {
-    display: inline;
-  }
-  
-  .nav > .nav-header > .nav-title {
-    display: inline-block;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 10px 10px 10px 10px;
-    font-size: 22px;
-    color: #fff;
-    font-weight: 550;
-	margin-left:40%;
-  }
-  
-
-</style>
-
-
 </html>

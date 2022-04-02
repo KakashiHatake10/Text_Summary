@@ -12,12 +12,12 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-		try {
-			TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-			botsApi.registerBot(new Telegrambot());
-		} catch (TelegramApiException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+//			botsApi.registerBot(new Telegrambot());
+//		} catch (TelegramApiException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 }
