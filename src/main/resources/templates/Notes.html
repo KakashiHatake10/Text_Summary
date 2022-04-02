@@ -22,7 +22,7 @@
 
     <a class="navbar-brand" href="#">
         <!--<img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top"> -->
-        <i class="fa fa-list-alt" aria-hidden="true"></i>
+        <i class="fa fa-list-alt"  aria-hidden="true"></i>
         Summary API
 
     </a>
@@ -47,31 +47,6 @@
         </ul>
     </div>
 </nav>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <form method="post" action="/public/summaryText">
-                <h4>Paste pargraph</h4>
-
-                <textarea class="form-control" name="text" placeholder="Drop the data" rows="10"
-                          th:text="${message1}"></textarea>
-
-                <button type="submit" style="margin-top:5px;" class="btn btn-primary"
-                        id="btnFetch"
-                >Convert
-                </button>
-
-            </form>
-        </div>
-        <div class="col">
-            <h4>Your Summary</h4>
-            <textarea class="form-control" placeholder="...." rows="10" th:text="${message2}">
-            </textarea>
-            </form>
-        </div>
-    </div>
-</div>
-
+    <h1>Hello World</h1>
 </body>
-
 </html>

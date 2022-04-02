@@ -1,0 +1,18 @@
+.container-fluid{
+
+margin-top:50px;
+}
+.btn{
+	
+float: right;	
+}
+textarea.form-control{
+	    border: dotted;
+
+}
+nav{
+background:#00596b;}
+
+.navbar-light .navbar-nav .nav-link{
+	color: aliceblue;
+}

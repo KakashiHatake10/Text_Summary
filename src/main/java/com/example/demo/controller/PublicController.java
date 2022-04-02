@@ -1,16 +1,19 @@
 package com.example.demo.controller;
-import com.example.demo.SummeryAPI.APICall;
+
+import com.example.demo.Service.APICall;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 
 @Controller
-public class HomeController {
+@RequestMapping("/public")
+public class PublicController {
 
     @Autowired
     APICall api;
@@ -34,5 +37,15 @@ public class HomeController {
         model.addAttribute("message1", text);
         model.addAttribute("message2", check);
         return "home";
+    }
+
+    @GetMapping("/signin")
+    public String login_page() {
+        return "Login";
+    }
+
+    @GetMapping("/register")
+    public String register_page() {
+        return "register";
     }
 }

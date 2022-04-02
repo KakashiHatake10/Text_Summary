@@ -1,6 +1,6 @@
 package com.example.demo.TelegrambotApi;
 
-import com.example.demo.SummeryAPI.APICall;
+import com.example.demo.Service.APICall;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;

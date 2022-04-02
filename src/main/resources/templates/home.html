@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Bootstrap </title>
     <meta charset="utf-8">
@@ -13,17 +14,17 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link th:href="@{/static/style.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm navbar-light
 ">
 
-    <a class="navbar-brand" style="text-align:center;" href="#">
+    <a class="navbar-brand" href="#">
         <!--<img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top"> -->
-        <h3><i class="fa fa-list-alt" aria-hidden="true"></i>
-            Summary API
-        </h3>
+        <i class="fa fa-list-alt" aria-hidden="true"></i>
+        Summary API
+
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,11 +38,11 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link " aria-current="page" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> <span
-                >Login</span></a>
+                >login</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-user-plus" aria-hidden="true"></i><span> Signup</span></a>
+                <a class="nav-link" href="#"> <i class="fa fa-user-plus" aria-hidden="true"></i><span> signup</span></a>
             </li>
         </ul>
     </div>
@@ -49,24 +50,28 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <form>
-                <h4>Paste the Easy or pargraph</h4>
-                <div class="mb-3">
-                    <textarea class="form-control" placeholder="Leave a comment here" rows="15"
-                              id="floatingTextarea"></textarea>
+            <form method="post" action="/public/summaryText">
+                <h4>Paste pargraph</h4>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                <textarea class="form-control" name="text" placeholder="Drop the data" rows="10"
+                          th:text="${message1}"></textarea>
+
+                <button type="submit" style="margin-top:5px;" class="btn btn-primary"
+                        id="btnFetch"
+                >Convert
+                </button>
+
             </form>
         </div>
-        <div class="col bg-gradient">
+        <div class="col">
             <h4>Your Summary</h4>
-            <div class="mb-3">
-                <textarea class="form-control" placeholder="Leave a comment here" rows="15"></textarea>
-            </div>
+            <textarea class="form-control" placeholder="...." rows="10" th:text="${message2}">
+            </textarea>
             </form>
         </div>
     </div>
 </div>
+
 </body>
+
 </html>
