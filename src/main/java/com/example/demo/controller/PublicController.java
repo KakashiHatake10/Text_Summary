@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.Model.User;
 import com.example.demo.Service.APICall;
+import com.example.demo.Service.UserCURDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.io.IOException;
 
 @Controller
-@RequestMapping("/public")
 public class PublicController {
 
-    @Autowired
+
     APICall api;
 
     @GetMapping("/")
@@ -37,6 +38,16 @@ public class PublicController {
         model.addAttribute("message1", text);
         model.addAttribute("message2", check);
         return "home";
+    }
+
+    @Autowired
+    private UserCURDService userCURDService;
+
+    @PostMapping("/private/save")
+    public String save(User user) {
+        System.out.println("inside save method");
+        this.userCURDService.save(user);
+        return "Login";
     }
 
     @GetMapping("/signin")

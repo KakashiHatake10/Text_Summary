@@ -11,8 +11,8 @@ public class UserCURDService {
     @Autowired
     private UserRepository userRepository;
 
-    public User save(User user){
+    public User save(User user) {
         user.setRole("ROLE_USER");
-        return  this.userRepository.save(user);
+        return this.userRepository.save(user);
     }
 }

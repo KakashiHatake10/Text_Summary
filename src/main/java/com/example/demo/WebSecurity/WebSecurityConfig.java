@@ -36,13 +36,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/private/**").hasRole("ADMIN")
-                .antMatchers("/public/**").permitAll()
+                //.antMatchers("/private/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/signin")
                 .loginProcessingUrl("/doLogin")
-                .defaultSuccessUrl("/public/");
+                .defaultSuccessUrl("/");
     }
 }
