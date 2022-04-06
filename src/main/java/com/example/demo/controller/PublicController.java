@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.io.IOException;
 
 @Controller
+
 public class PublicController {
 
-
+    @Autowired
     APICall api;
 
     @GetMapping("/")
@@ -28,6 +29,7 @@ public class PublicController {
     public String message(Model model) {
         model.addAttribute("message", "This is a custom message");
         System.out.println("test");
+
         String s = "s";
         return "message";
     }
@@ -37,26 +39,36 @@ public class PublicController {
         String check = api.check(text);
         model.addAttribute("message1", text);
         model.addAttribute("message2", check);
+        model.addAttribute("save", 1 > 0);
         return "home";
     }
+
+    @GetMapping("/login")
+    public String login_page(Model model) {
+        // model.addAttribute("user",null);
+        return "Login";
+    }
+
+    @GetMapping("/register")
+    public String register_page() {
+        System.out.println("hi re");
+        System.out.println("get");
+        return "register";
+    }
+
 
     @Autowired
     private UserCURDService userCURDService;
 
-    @PostMapping("/private/save")
+    @PostMapping("/save")
     public String save(User user) {
         System.out.println("inside save method");
         this.userCURDService.save(user);
         return "Login";
     }
 
-    @GetMapping("/signin")
-    public String login_page() {
-        return "Login";
-    }
-
-    @GetMapping("/register")
-    public String register_page() {
-        return "register";
+    @GetMapping("/home")
+    public String home() {
+        return "home1";
     }
 }

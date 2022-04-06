@@ -4,10 +4,8 @@ import com.example.demo.Model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 public class CustomUserDetail implements UserDetails {
 
@@ -16,6 +14,7 @@ public class CustomUserDetail implements UserDetails {
     public CustomUserDetail(User user) {
         this.user = user;
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -27,12 +26,20 @@ public class CustomUserDetail implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.getPassword();
+        return this.user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return this.getUsername();
+        return this.user.getEmail();
+    }
+
+    public String getRole() {
+        return this.user.getRole();
+    }
+
+    public String getName() {
+        return this.user.getUsername();
     }
 
     @Override

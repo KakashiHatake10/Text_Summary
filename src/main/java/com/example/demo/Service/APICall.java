@@ -10,7 +10,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-
+@Service
 public class APICall {
 
     public String check(String t1) throws IOException, InterruptedException {

@@ -1,18 +1,32 @@
 package com.example.demo.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import org.glassfish.grizzly.http.Note;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "users_table")
+@Table(name = "users")
 public class User {
 
     @Id
     private String email;
     private String username;
-    private int password;
+    private String password;
     private String role;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER,orphanRemoval = true)
+    private List<Notes> notes = new ArrayList<>();
+
+    public List<Notes> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Notes> notes) {
+        this.notes = notes;
+    }
 
     public String getEmail() {
         return email;
@@ -30,11 +44,11 @@ public class User {
         this.username = username;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -44,5 +58,16 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", notes=" + notes +
+                '}';
     }
 }
